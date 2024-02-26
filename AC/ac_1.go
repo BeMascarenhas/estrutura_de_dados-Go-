@@ -55,7 +55,7 @@ func main() {
 	var temperatura float64
 	fmt.Print("Digite uma temperatura em celcius que diremos quanto ela vale em farenheit: ")
 	fmt.Scanln(&temperatura)
-	fmt.Printf("A temperatura correta é: %f", temperatura)
+	fmt.Printf("A temperatura correta em farenheit é: %f", temperatura)
 
 
 }
