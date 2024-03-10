@@ -1,22 +1,24 @@
 package main
+
 //Calculo de Passos
-import(
+import (
 	"fmt"
 )
-func buscaMatriz(m[][]int,n int, x int) bool{
+
+func buscaMatriz(m [][]int, n int, x int) bool {
 	var i int = 0
 
-	for i<n{
+	for i < n {
 		j := 0
-		for j <n{
-			if (m[i][j] == x){
+		for j < n {
+			if m[i][j] == x {
 				return true
 			}
 			j++
 		}
 		i++
 	}
-		return false
+	return false
 }
 func par(a []int, x int) []int {
 	for i := 0; i < len(a); i++ {
@@ -28,11 +30,26 @@ func par(a []int, x int) []int {
 	}
 	return []int{-1, -1}
 }
+func par2(a []int, x int) []int {
+	indices := make(map[int]int)
 
-func main(){
+	for i, num := range a {
+		complement := x - num
+		if j, found := indices[complement]; found {
+			return []int{j, i}
+		}
+		indices[num] = i
+	}
+
+	return []int{-1, -1}
+}
+
+func main() {
 	matriz := [][]int{{1, 2}, {3, 4}}
 	b := buscaMatriz(matriz, 2, 2)
 	fmt.Println(b)
-	c:= []int{1,2,3,4}
-	fmt.Println(par(c,7))
+	c := []int{1, 2, 3, 4}
+	fmt.Println(par(c, 7))
 }
+
+
