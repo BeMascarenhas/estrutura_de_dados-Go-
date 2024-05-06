@@ -1,0 +1,157 @@
+ac8
+1.
+package main
+
+import "fmt"
+
+func main() {
+    for {
+        var digitoEsquecido string
+        fmt.Scanf("%s", &digitoEsquecido)
+
+        var numero string
+        fmt.Scanf("%s", &numero)
+
+        if digitoEsquecido == "0" && numero == "0" {
+            break
+        }
+
+        var resultado string
+        removendoZerosEsquerda := true
+        for _, char := range numero {
+            if string(char) != digitoEsquecido {
+                if char != '0' {
+                    removendoZerosEsquerda = false
+                }
+                if !removendoZerosEsquerda {
+                    resultado += string(char)
+                }
+            }
+        }
+        if resultado == "" || resultado == "0" {
+            fmt.Println("0")
+        } else {
+            fmt.Println(resultado)
+        }
+    }
+}
+
+2.
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var h int
+	fmt.Scanln(&h)
+	
+	for i := 0; i < h; i++ {
+		var x string
+		fmt.Scanln(&x)
+		count := 0
+		
+		for _, c := range x {
+			switch c {
+			case '0', '6', '9':
+				count += 6
+			case '1':
+				count += 2
+			case '2', '3', '5':
+				count += 5
+			case '4':
+				count += 4
+			case '7':
+				count += 3
+			default:
+				count += 7
+			}
+		}
+		
+		fmt.Printf("%d leds\n", count)
+	}
+}
+3.
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var cont int
+	fmt.Scanln(&cont)
+	
+	for j := 0; j < cont; j++ {
+		var num int
+		var x string
+		fmt.Scanln(&x)
+		fmt.Scanln(&num)
+		
+		for i := 0; i < len(x); i++ {
+			if x[i] == ' ' {
+				continue
+			} else {
+				x = x[:i] + string(((int(x[i]) - 'A' - num + 26) % 26 + 'A')) + x[i+1:]
+			}
+		}
+		fmt.Println(x)
+	}
+}
+4.
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var pais string
+    for {
+        _, err := fmt.Scan(&pais)
+        if err != nil {
+            break
+        }
+
+        switch pais {
+        case "brasil":
+            fmt.Println("Feliz Natal!")
+        case "alemanha":
+            fmt.Println("Frohliche Weihnachten!")
+        case "austria":
+            fmt.Println("Frohe Weihnacht!")
+        case "coreia":
+            fmt.Println("Chuk Sung Tan!")
+        case "espanha":
+            fmt.Println("Feliz Navidad!")
+        case "grecia":
+            fmt.Println("Kala Christougena!")
+        case "estados-unidos", "inglaterra", "australia":
+            fmt.Println("Merry Christmas!")
+        case "portugal":
+            fmt.Println("Feliz Natal!")
+        case "suecia":
+            fmt.Println("God Jul!")
+        case "turquia":
+            fmt.Println("Mutlu Noeller")
+        case "argentina", "chile", "mexico":
+            fmt.Println("Feliz Navidad!")
+        case "antardida", "canada":
+            fmt.Println("Merry Christmas!")
+        case "irlanda":
+            fmt.Println("Nollaig Shona Dhuit!")
+        case "belgica":
+            fmt.Println("Zalig Kerstfeest!")
+        case "italia", "libia":
+            fmt.Println("Buon Natale!")
+        case "siria", "marrocos":
+            fmt.Println("Milad Mubarak!")
+        case "japao":
+            fmt.Println("Merii Kurisumasu!")
+        default:
+            fmt.Println("--- NOT FOUND ---")
+        }
+    }
+}
+
